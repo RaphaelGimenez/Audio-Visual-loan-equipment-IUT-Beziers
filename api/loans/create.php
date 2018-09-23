@@ -1,7 +1,9 @@
 <?php
     // Headers
-    header('Access-Control-Allow-Origin:*');
+    header('Access-Control-Allow-Origin: *');
     header('Content-Type: application/json');
+    header('Access-Control-Allow-Method: POST');
+    header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Access-Control-Allow-Method,Content-Type,Access-Control-Allow-Origin,Authorization,X-Requested-With');
 
     include_once '../../config/Database.php';
     include_once '../../models/Loan.php';
