@@ -1,0 +1,22 @@
+{
+  "status": "string",
+  "data": {
+    "id": "integer",
+    "startDate": "string",
+    "endDate": "string",
+    "project": "string",
+    "state": "integer",
+    "user": {
+      "name": "string",
+      "surname": "string",
+      "email": "string",
+      "department": "string"
+    },
+    "eqList": [
+      {
+        "id": "integer",
+        "name": "string"
+      }
+    ]
+  }
+}

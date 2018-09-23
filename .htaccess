@@ -1,0 +1,68 @@
+RewriteEngine On # Turn on the rewriting engine
+
+# Rewrite URL for requests on users
+    # GET
+    RewriteCond %{REQUEST_METHOD} =GET
+    RewriteRule ^users/?$ api/users/read.php [NC,L]
+    RewriteCond %{REQUEST_METHOD} =GET
+    RewriteRule ^users/([0-9]+)/?$ api/users/read.php?id=$1 [NC,L]
+
+    # POST
+    RewriteCond %{REQUEST_METHOD} =POST
+    RewriteRule ^users/?$ api/users/create.php [NC,L]
+    RewriteCond %{REQUEST_METHOD} =POST
+    RewriteRule ^users/session/?$ api/users/login.php [NC,L]
+
+    # PATCH
+    RewriteCond %{REQUEST_METHOD} =PATCH
+    RewriteRule ^users/([0-9]+)/?$ api/users/update.php?id=$1 [NC,L]
+
+    # DELETE
+    RewriteCond %{REQUEST_METHOD} =DELETE
+    RewriteRule ^users/([0-9]+)/?$ api/users/delete.php?id=$1 [NC,L]
+
+
+# Rewrite URL for requests on equipments
+    # GET
+    RewriteCond %{REQUEST_METHOD} =GET
+    RewriteRule ^equipment/?$ api/equipment/read.php [NC,L]
+    RewriteCond %{REQUEST_METHOD} =GET
+    RewriteRule ^equipment/([0-9]+)/?$ api/equipment/read.php?id=$1 [NC,L]
+    RewriteCond %{REQUEST_METHOD} =GET
+    RewriteRule ^equipment/([a-z]+)/?$ api/equipment/read.php?category=$1 [NC,L]
+
+    # POST
+    RewriteCond %{REQUEST_METHOD} =POST
+    RewriteRule ^equipment/?$ api/equipment/create.php [NC,L]
+
+    # PATCH
+    RewriteCond %{REQUEST_METHOD} =PATCH
+    RewriteRule ^equipment/([0-9]+)/?$ api/equipment/update.php?id=$1 [NC,L]
+
+    # DELETE
+    RewriteCond %{REQUEST_METHOD} =DELETE
+    RewriteRule ^equipment/([0-9]+)/?$ api/equipment/delete.php?id=$1 [NC,L]
+
+
+# Rewrite URL for requests on loans
+    # GET
+    RewriteCond %{REQUEST_METHOD} =GET
+    RewriteRule ^loans/?$ api/loans/read.php [NC,L]
+    RewriteCond %{REQUEST_METHOD} =GET
+    RewriteRule ^loans/([0-9]+)/?$ api/loans/read.php?id=$1 [NC,L]
+    RewriteCond %{REQUEST_METHOD} =GET
+    RewriteRule ^loans/user/([0-9]+)/?$ api/loans/read.php?idU=$1 [NC,L]
+
+    # POST
+    RewriteCond %{REQUEST_METHOD} =POST
+    RewriteRule ^loans/?$ api/loans/create.php [NC,L]
+
+    # PATCH
+    RewriteCond %{REQUEST_METHOD} =PATCH
+    RewriteRule ^loans/([0-9]+)/?$ api/loans/update.php?id=$1 [NC,L]
+
+    # DELETE
+    RewriteCond %{REQUEST_METHOD} =DELETE
+    RewriteRule ^loans/([0-9]+)/?$ api/loans/delete.php?id=$1 [NC,L]
+    RewriteCond %{REQUEST_METHOD} =DELETE
+    RewriteRule ^loans/([0-9]+)/equipment/([0-9]+)/?$ api/loans/delete.php?id=$1&idE=$2 [NC,L]

@@ -1,0 +1,10 @@
+{
+  "status": "string",
+  "data": {
+    "id": "integer",
+    "name": "string",
+    "surname": "string",
+    "email": "string",
+    "department": "string"
+  }
+}

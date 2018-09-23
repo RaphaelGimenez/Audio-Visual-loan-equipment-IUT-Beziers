@@ -1,0 +1,10 @@
+{
+  "status": "string",
+  "data": {
+    "id": "integer",
+    "name": "string",
+    "description": "string",
+    "category": "string",
+    "image": "string"
+  }
+}
